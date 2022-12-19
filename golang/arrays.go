@@ -15,41 +15,55 @@ func main() {
 	for _, value := range tests {
 		populateArray(value)
 		elapsed := timeElapsed(get, value-1)
-		fmt.Println("Time elapsed: AAA", elapsed)
+    fmt.Printf("%v %v \n", value, elapsed)
+	}
+
+	println("Testing push")
+	for _, value := range tests {
+		populateArray(value)
+		elapsed := timeElapsed(push, value-1)
+    fmt.Printf("%v %v \n", value, elapsed)
 	}
 
 
-	println("Testing shift")
+  // WOW EVEN WORSE THAN JS, maybe its you shit implementation?
+	println("Testing unshift")
 	for _, value := range tests {
 		populateArray(value)
 		elapsed := timeElapsed(unshift, value-1)
-		fmt.Println("Time elapsed: AAA", elapsed)
+    fmt.Printf("%v %v \n", value, elapsed)
 	}
 }
 
 func populateArray(number int) {
 	arrayToTest = []int{}
-	fmt.Println("Reseted array capacity: ", cap(arrayToTest))
 	for i := 0; i < number; i++ {
 		arrayToTest = append(arrayToTest, i)
 	}
 }
 
-type FunctionType = func(int) int
+type FunctionType = func(int)
 func timeElapsed(f FunctionType, arg int) int {
 	start := time.Now()
 	f(arg)
 	elapsed := time.Since(start).Milliseconds()
-	fmt.Println("Time elapsed: ", elapsed)
 	return int(elapsed)
 }
 
-func get(index int) int{
-		return arrayToTest[index]
+func get(index int) {
+  // The a is here to remove the anoying "declared but not used error"
+  a := arrayToTest[index]
+  _ = a
 }
 
 func unshift(number int) {
   for i:=0; i<number; i++ {
+   arrayToTest = append([]int{9}, arrayToTest...) 
+  }
+}
 
+func push(number int) {
+  for i:=0; i<number; i++ {
+    arrayToTest = append(arrayToTest, 8)
   }
 }
