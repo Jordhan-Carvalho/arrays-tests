@@ -9,7 +9,7 @@ var arrayToTest []int
 
 func main() {
 	fmt.Println("hi")
-	tests := [...]int{10, 100, 1000, 10000, 100000, 1000000, 10000000}
+	tests := [...]int{10, 100, 1000, 10000, 100000, 1000000 }
 
 	println("Testing get")
 	for _, value := range tests {
@@ -26,7 +26,7 @@ func main() {
 	}
 
 
-  // WOW EVEN WORSE THAN JS, maybe its you shit implementation?
+  // WOW EVEN WORSE THAN JS, maybe its your shit implementation?
 	println("Testing unshift")
 	for _, value := range tests {
 		populateArray(value)

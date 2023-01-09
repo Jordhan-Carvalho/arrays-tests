@@ -60,7 +60,7 @@ function shift_arr(count: number) {
     };
 }
 
-const tests = [10, 100, 1000, 10000, 100000, 1_000_000, 10_000_000];
+const tests = [10, 100, 1000, 10000, 100000, 1_000_000 ];
 console.log("Testing get");
 tests.forEach(t => {
     a.length = 0;
@@ -73,7 +73,7 @@ tests.forEach(t => {
     a.length = 0;
     push(t);
 
-    console.log(t, time(push_arr(1000)));
+    console.log(t, time(push_arr(t)));
 });
 
 console.log("pop");
@@ -81,7 +81,7 @@ tests.forEach(t => {
     a.length = 0;
     push(t);
 
-    console.log(t, time(pop_arr(1000)));
+    console.log(t, time(pop_arr(t)));
 });
 
 console.log("unshift");
@@ -89,7 +89,7 @@ tests.forEach(t => {
     a.length = 0;
     push(t);
 
-    console.log(t, time(unshift_arr(1000)));
+    console.log(t, time(unshift_arr(t)));
 });
 
 console.log("shift");
@@ -97,5 +97,5 @@ tests.forEach(t => {
     a.length = 0;
     push(t);
 
-    console.log(t, time(shift_arr(1000)));
+    console.log(t, time(shift_arr(t)));
 });
